@@ -25,15 +25,14 @@ export default async function handler(req, res) {
   }
   const results = await resultsCollection.find(query).toArray()
   const scoreboard = {}
+  for (const part of league.participants) {
+    scoreboard[part] = {}
+    scoreboard[part].results = 0
+    scoreboard[part].points = 0
+  }
   for (const result of results) {
-    if (scoreboard[result.username]) {
       scoreboard[result.username].results += 1
       scoreboard[result.username].points += result.points
-    } else {
-      scoreboard[result.username] = {}
-      scoreboard[result.username].results = 1
-      scoreboard[result.username].points = result.points
-    }
   }
   const response = Object.keys(scoreboard).map(k => {
     return {

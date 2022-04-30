@@ -22,7 +22,8 @@ function League({ _id, name, typeUrl, onClick }) {
       {scoreboard && scoreboard.position === 3 && <span className="text-xl">🥉</span>}
       </div>
       <div className='my-auto p-1 mr-1 w-[80px]'>
-        {scoreboard && <p>#{scoreboard.position} of {scoreboard.scoreboard.length}</p>}
+        <div>{scoreboard && <p>#{scoreboard.position} of {scoreboard.scoreboard.length}</p>}</div>
+        <div className="text-sm text-gray-500">{scoreboard && scoreboard.scoreboard && scoreboard.scoreboard[scoreboard.position - 1].points} pts.</div>
       </div>
     </div>
   )
