@@ -32,7 +32,7 @@ function Leagues() {
         <Title
           content={'Leagues'}
         />
-        {data.length === 0 && <p className='mt-3'>No leagues yet!</p>}
+        {data && data.length === 0 && <p className='mt-3'>No leagues yet!</p>}
         {data && data.map((l, i) => {
           return <League key={i} {...l} onClick={() => {
             router.push(`/leagues/${l._id}`)
