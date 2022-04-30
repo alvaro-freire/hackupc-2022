@@ -3,6 +3,7 @@ import Button from "../../components/button"
 import Input from "../../components/input"
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
+import Title from "../../components/title"
 
 function Join() {
   const router = useRouter()
@@ -42,6 +43,9 @@ function Join() {
     <>
       <Seo title='Join League' />
       <Navbar />
+      <Title
+          content={'Join League'}
+        />
       <main>
         <form onSubmit={handleSubmit}>
           <Input

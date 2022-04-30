@@ -3,6 +3,7 @@ import Button from "../../components/button"
 import Input from "../../components/input"
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
+import Title from "../../components/title"
 
 function New() {
   const router = useRouter()
@@ -45,6 +46,9 @@ function New() {
     <>
       <Seo title='New' />
       <Navbar />
+      <Title
+          content={'Create League'}
+      />
       <main>
         <form onSubmit={handleSubmit}>
           <Input

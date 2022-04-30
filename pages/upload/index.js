@@ -3,6 +3,7 @@ import Button from "../../components/button"
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
 import TextArea from "../../components/textarea"
+import Title from "../../components/title"
 
 function Upload() {
   const router = useRouter()
@@ -39,11 +40,13 @@ function Upload() {
     <>
       <Seo title='Upload' />
       <Navbar />
+      <Title 
+        content={'Upload'}
+      />
       <main>
         <form onSubmit={handleUpload}>
           <TextArea 
-            label={'Result'}
-            subLabel={'Paste your result here'}
+            label={'Paste your result here'}
             type={'text'}
             name={'result'}
           />
