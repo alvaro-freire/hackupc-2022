@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     const typeUrl = lines[lines.length - 1]
     const emojis = lines.slice(1, -1)
     const points = getPoints(emojis)
-    const preparedResult = { username, head, typeUrl, emojis, points }
+    const preparedResult = { username, head, typeUrl, emojis, points, date: new Date() }
     const response = await resultsCollection.insertOne(preparedResult)
     return res.status(200).json({ ...preparedResult, _id: response.insertedId })
   }

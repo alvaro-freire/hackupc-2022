@@ -21,7 +21,10 @@ export default async function handler(req, res) {
     username: {
       $in: league.participants
     },
-    typeUrl: league.typeUrl
+    typeUrl: league.typeUrl,
+    date: {
+      $gte: league.date
+    }
   }
   const results = await resultsCollection.find(query).toArray()
   const scoreboard = {}

@@ -13,7 +13,8 @@ export default async function handler(req, res) {
       name,
       typeUrl,
       key,
-      participants: [username]
+      participants: [username],
+      date: new Date()
     }
     const inserted = await leaguesCollection.insertOne(league)
 
