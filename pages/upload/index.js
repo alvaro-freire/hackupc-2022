@@ -1,16 +1,16 @@
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
 
-function Friends() {
+function Upload() {
   return (
     <>
-      <Seo title='Friends' />
+      <Seo title='Upload' />
       <Navbar />
       <main>
-        <h2>Friends</h2>
+        <h2>Upload</h2>
       </main>
     </>
   )
 }
 
-export default Friends
+export default Upload

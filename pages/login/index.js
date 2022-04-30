@@ -55,7 +55,9 @@ function Login() {
             label='Password'
             name='password'
           />
-          <Button />
+          <Button 
+            text = {'Login'}
+          />
         </form>
       </main>
     </>

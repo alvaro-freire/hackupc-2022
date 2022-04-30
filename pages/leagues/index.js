@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import League from '../../components/league'
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
+import Button from '../../components/button'
 
 function Leagues() {
   const [data, setData] = useState(null)
@@ -33,6 +34,22 @@ function Leagues() {
               router.push(`/leagues/${l._id}`)
             }}/>
         })}
+        <div className='flex justify-around text-sm'>
+          <Button
+            text = {'Join League'}
+            onClick = {() => {
+              router.push('/leagues/join')
+            }}
+          />
+          <div>
+          <Button
+            text = {'Create League'}
+            onClick = {() => {
+              router.push('/leagues/new')
+            }}
+          />
+          </div>
+        </div>
       </main>
     </>
   )

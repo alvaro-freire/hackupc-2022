@@ -24,9 +24,8 @@ function Navbar() {
     <main>
       <nav className='underline flex w-[400px] mx-auto justify-around mt-3 mb-5'>
         <Link href='/leagues'>Leagues</Link>
-        <Link href='/friends'>Friends</Link>
+        <Link href='/upload'>Upload</Link>
         <Link href='/profile'>Profile</Link>
-        {!username && <Link href='/login'>Login</Link> }
         {username && <p className="cursor-pointer" onClick={handleLogout}>Logout</p>}
       </nav>
     </main>
