@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import Button from '../../components/button'
 import League from '../../components/league'
 import Navbar from "../../components/navbar"
 import Podium from '../../components/podium'
@@ -40,17 +41,17 @@ function LeaguePage() {
           </div>
         </div>
         <Podium
-          first={scoreboard && 
-            scoreboard.scoreboard && 
-            scoreboard.scoreboard[0] && 
+          first={scoreboard &&
+            scoreboard.scoreboard &&
+            scoreboard.scoreboard[0] &&
             scoreboard.scoreboard[0].username}
-          second={scoreboard && 
-            scoreboard.scoreboard && 
-            scoreboard.scoreboard[1] && 
+          second={scoreboard &&
+            scoreboard.scoreboard &&
+            scoreboard.scoreboard[1] &&
             scoreboard.scoreboard[1].username}
-          third={scoreboard && 
-            scoreboard.scoreboard && 
-            scoreboard.scoreboard[2] && 
+          third={scoreboard &&
+            scoreboard.scoreboard &&
+            scoreboard.scoreboard[2] &&
             scoreboard.scoreboard[2].username}
         />
         <div className='text-center w-[400px] mx-auto mt-5 p-2'>
@@ -74,6 +75,17 @@ function LeaguePage() {
             }} />
           })}
         </div>
+        <form className='mt-3'>
+          <Button
+            text={'Leave League'}
+            onClick={() => {
+              fetch(`/api/leagues/${id}/leave`)
+                .then(() => {
+                  return router.push('/leagues')
+                })
+            }}
+          />
+        </form>
       </main>
     </>
   )
