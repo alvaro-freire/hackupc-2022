@@ -22,7 +22,7 @@ function LeaguePage() {
       .then((res) => {
         return res.json()
       }).then(setScoreboard)
-  }, [router])
+  }, [router, id])
 
 
 
