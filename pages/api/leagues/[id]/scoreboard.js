@@ -43,8 +43,8 @@ export default async function handler(req, res) {
     }
   })
   res.status(200).json({
-    position: response.sort((a, b) => a - b).findIndex(r => r.username === username) + 1,
-    scoreboard: response.sort((a, b) => a - b).map((x, i) => {
+    position: response.sort((a, b) => b.points - a.points).findIndex(r => r.username === username) + 1,
+    scoreboard: response.sort((a, b) => b.points - a.points).map((x, i) => {
       return { ...x, position: i + 1 }
     })
   })

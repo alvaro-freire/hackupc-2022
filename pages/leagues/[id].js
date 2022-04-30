@@ -52,7 +52,7 @@ function LeaguePage() {
               <p>Points</p>
             </div>
           </div>
-          {scoreboard && scoreboard.scoreboard.map((user, i) => {
+          {scoreboard && scoreboard.scoreboard && scoreboard.scoreboard.map((user, i) => {
             return <Score key={i} {...user} onClick={() => {
               router.push(`/leagues/${l._id}`)
             }} />

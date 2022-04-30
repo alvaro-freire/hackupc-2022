@@ -7,18 +7,17 @@ function getPoints(emojis) {
     for (const emoji of line) {
       switch (emoji) {
         case '⬜':
-          points -= 10;
           break;
         case '🟨':
-          points += 10;
+          points += 50;
           break;
         case '🟩':
-          points += 20;
+          points += 100;
           break;
       }
     }
   }
-  return points
+  return Math.floor(points / emojis.length)
 }
 
 export default async function handler(req, res) {
