@@ -6,8 +6,9 @@ export default async function handler(req, res) {
   if (!checkAuth({ req, res })) return res.status(401).json({ status: 'Not authorized' })
   const leaguesCollection = await loadCollection('leagues')
   const { id } = req.query
+  let query
   try {
-    const query = { _id: ObjectId(id) }
+    query = { _id: ObjectId(id) }
   } catch {
     return res.status(400).json({ status: 'Invalid id' })
   }

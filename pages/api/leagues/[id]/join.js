@@ -8,8 +8,10 @@ export default async function handler(req, res) {
   const username = checkAuth({ req, res })
   if (!username) return res.status(401).json({ status: 'Not authorized' })
   const { id } = req.query
+  const { key } = req.body
+  let query
   try {
-    const query = { _id: ObjectId(id) }
+    query = { _id: ObjectId(id) }
   } catch {
     return res.status(400).json({ status: 'Invalid id' })
   }
@@ -22,6 +24,9 @@ export default async function handler(req, res) {
     $push: {
       participants: username
     }
+  }
+  if (league.key !== key) {
+    return res.status(403).json({ status: 'Wrong key' })
   }
   const result = await leaguesCollection.updateOne(query, update)
   res.status(200).json({ status: 'Ok' })

@@ -6,12 +6,13 @@ export default async function handler(req, res) {
   if (!username) return res.status(401).json({ status: 'Not authorized' })
   const leaguesCollection = await loadCollection('leagues')
   if (req.method === 'POST') {
-    const { name, typeUrl } = req.body
-    if (!name || !typeUrl) return res.status(400).json({ status: 'Bad request' })
+    const { name, typeUrl, key } = req.body
+    if (!name || !typeUrl || !key) return res.status(400).json({ status: 'Bad request' })
 
     const league = {
       name,
       typeUrl,
+      key,
       participants: []
     }
     const inserted = await leaguesCollection.insertOne(league)
