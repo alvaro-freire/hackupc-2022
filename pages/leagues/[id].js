@@ -24,8 +24,6 @@ function LeaguePage() {
       }).then(setScoreboard)
   }, [router, id])
 
-
-
   return (
     <>
       <Seo title='Leagues' />
@@ -40,7 +38,7 @@ function LeaguePage() {
           </div>
         </div>
         <div className='text-center w-[400px] mx-auto mt-5 p-2'>
-          <div className='flex border-b border-black font-bold cursor-pointer'>
+          <div className='flex border-b border-black font-bold'>
             <div className='text-center p-2 w-[50px]'>
               <p>{'Pos'}</p>
             </div>

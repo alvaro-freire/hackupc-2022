@@ -1,6 +1,6 @@
 function Score({ username, results, points, position }) {
   return (
-    <div className='flex border-b cursor-pointer'>
+    <div className='flex border-b'>
       <div className='text-center p-2 w-[50px]'>
         <p>{position}º</p>
       </div>
