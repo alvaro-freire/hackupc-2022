@@ -28,7 +28,7 @@ function Leagues() {
     <>
       <Seo title='Leagues' />
       <Navbar />
-      <main className='mx-auto w-[300px] text-center'>
+      <main className='mx-auto w-[400px] text-center'>
         <Title
           content={'Leagues'}
         />
