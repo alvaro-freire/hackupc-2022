@@ -7,6 +7,7 @@ import League from '../../components/league'
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
 import Button from '../../components/button'
+import Title from '../../components/title'
 
 function Leagues() {
   const [data, setData] = useState(null)
@@ -28,13 +29,15 @@ function Leagues() {
       <Seo title='Leagues' />
       <Navbar />
       <main className='mx-auto w-[300px] text-center'>
-        <h2 className='font-bold'>Leagues</h2>
+        <Title
+          content={'Leagues'}
+        />
         {data && data.map((l, i) => {
             return <League key={i} {...l} onClick={() => {
               router.push(`/leagues/${l._id}`)
             }}/>
         })}
-        <div className='flex justify-around text-sm'>
+        <div className='flex justify-around text-sm mt-5'>
           <Button
             text = {'Join League'}
             onClick = {() => {
