@@ -45,7 +45,7 @@ function Join() {
       <Navbar />
       <Title
           content={'Join League'}
-        />
+      />
       <main>
         <form onSubmit={handleSubmit}>
           <Input
