@@ -27,7 +27,7 @@ function Leagues() {
     <>
       <Seo title='Leagues' />
       <Navbar />
-      <main className='mx-auto w-[250px] text-center'>
+      <main className='mx-auto w-[300px] text-center'>
         <h2 className='font-bold'>Leagues</h2>
         {data && data.map((l, i) => {
             return <League key={i} {...l} onClick={() => {
@@ -41,14 +41,12 @@ function Leagues() {
               router.push('/leagues/join')
             }}
           />
-          <div>
           <Button
             text = {'Create League'}
             onClick = {() => {
               router.push('/leagues/new')
             }}
           />
-          </div>
         </div>
       </main>
     </>
