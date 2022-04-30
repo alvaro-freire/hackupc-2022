@@ -17,6 +17,7 @@ export default async function handler(req, res) {
     const league = await leaguesCollection.findOne(query)
 
     if (!league) return res.status(404).json({ status: 'Not found' })
+    delete league.key
     return res.status(200).json(league)
   }
   if (req.method === 'DELETE') {

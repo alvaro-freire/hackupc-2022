@@ -23,7 +23,9 @@ export default async function handler(req, res) {
     const leagues = await leaguesCollection.find({
       participants: username
     }).toArray()
-
+    leagues.forEach(l => {
+      delete l.key
+    });
     return res.status(200).json(leagues)
   }
 }

@@ -7,7 +7,9 @@ export default async function handler(req, res) {
   const leaguesCollection = await loadCollection('leagues')
   if (req.method === 'GET') {
     const leagues = await leaguesCollection.find().toArray()
-
+    leagues.forEach(l => {
+      delete l.key
+    });
     return res.status(200).json(leagues)
   }
 }
