@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import League from '../../components/league'
 import Navbar from "../../components/navbar"
+import Podium from '../../components/podium'
 import Score from '../../components/score'
 import Seo from "../../components/seo"
 
@@ -37,6 +38,20 @@ function LeaguePage() {
             <p>League ID: {id}</p>
           </div>
         </div>
+        <Podium
+          first={scoreboard && 
+            scoreboard.scoreboard && 
+            scoreboard.scoreboard[0] && 
+            scoreboard.scoreboard[0].username}
+          second={scoreboard && 
+            scoreboard.scoreboard && 
+            scoreboard.scoreboard[1] && 
+            scoreboard.scoreboard[1].username}
+          third={scoreboard && 
+            scoreboard.scoreboard && 
+            scoreboard.scoreboard[2] && 
+            scoreboard.scoreboard[2].username}
+        />
         <div className='text-center w-[400px] mx-auto mt-5 p-2'>
           <div className='flex border-b border-black font-bold'>
             <div className='text-center p-2 w-[50px]'>
