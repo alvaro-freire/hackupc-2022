@@ -34,7 +34,7 @@ function Login() {
     const response = await fetch(endpoint, options)
 
     if (response.status === 200) {
-      router.push('leagues')
+      router.push('/')
     }
   }
   
