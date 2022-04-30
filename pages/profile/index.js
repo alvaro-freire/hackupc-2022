@@ -7,7 +7,7 @@ function Profile() {
       <Seo title='Home' />
       <Navbar />
         <div className='my-auto text-center mt-6 w-[300px] mx-auto'>
-          <p className='font-bold text-lg'>PERFIL</p>
+          <p className='font-bold text-lg'>PROFILE</p>
         </div>
         <div className='my-auto text-center mt-6 w-[300px] mx-auto border'>
           <p className='my-2'>Username: Alvaro</p>
