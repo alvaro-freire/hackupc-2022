@@ -9,6 +9,30 @@ function Upload() {
 
   async function handleUpload(event) {
     event.preventDefault()
+
+    const data = {
+      result: event.target.result.value,
+    }
+
+    if (!data) return
+
+    const JSONdata = JSON.stringify(data)
+
+    const endpoint = '/api/results'
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSONdata,
+    }
+
+    const response = await fetch(endpoint, options)
+
+    if (response.status === 200) {
+      router.push('/leagues')
+    }
   }
 
   return (
