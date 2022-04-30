@@ -1,39 +1,52 @@
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
-import Title from "../../components/title"
 
 function Profile() {
 
   const [profile, setProfile] = useState(null)
 
   useEffect(() => {
-      fetch(`/api/me`)
-        .then((res) => res.json())
-        .then(setProfile)
+    fetch(`/api/me`)
+      .then((res) => res.json())
+      .then(setProfile)
   }, [])
 
   return (
     <>
       <Seo title='Home' />
       <Navbar />
-        <div className='my-auto text-center mt-6 w-[300px] mx-auto'>
-          <Title
-              content={'Profile'}
-          />
+      <div className='px-3 text-center mt-16 mb-4 w-[300px] mx-auto'>
+        <Image src={'/zombie.png'} width={'100px'} height={'100px'} />
+        <div className='text-xl mb-3'>{profile && profile.username}</div>
+      </div>
+      <div className='flex w-[400px] text-center mx-auto'>
+        <div className='my-auto w-[300px] mx-auto'>
+          <div>
+            <p className='my-2 text-3xl'>{profile && profile.leagues}</p>
+          </div>
+          <div>
+            <p className='my-2 text-sm'>{'leagues'}</p>
+          </div>
         </div>
-        <div className='my-auto text-center mt-6 w-[300px] mx-auto border'>
-          <p className='my-2'>Username: {profile && profile.username}</p>
+        <div className='my-auto w-[300px] mx-auto'>
+          <div>
+            <p className='my-2 text-3xl'>{profile && profile.points}</p>
+          </div>
+          <div>
+            <p className='my-2 text-sm'>{'points'}</p>
+          </div>
         </div>
-        <div className='my-auto text-center mt-2 w-[300px] mx-auto border'>
-          <p className='my-2'>Nº leagues: {profile && profile.leagues}</p>
+        <div className='my-auto w-[300px] mx-auto'>
+          <div>
+            <p className='my-2 text-3xl'>{profile && profile.results}</p>
+          </div>
+          <div>
+            <p className='my-2 text-sm'>{'uploads'}</p>
+          </div>
         </div>
-        <div className='my-auto text-center mt-2 w-[300px] mx-auto border'>
-          <p className='my-2'>Total uploads: {profile && profile.results}</p>
-        </div>
-        <div className='my-auto text-center mt-2 w-[300px] mx-auto border'>
-          <p className='my-2'>Total points: {profile && profile.points}</p>
-        </div>
+      </div>
     </>
   )
 }
