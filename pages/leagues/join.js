@@ -1,3 +1,6 @@
+import Navbar from "../../components/navbar"
+import Seo from "../../components/seo"
+
 function Join() {
   return (
     <>

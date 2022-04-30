@@ -12,7 +12,7 @@ function Leagues() {
   const router = useRouter()
 
   useEffect(() => {
-    fetch('api/leagues')
+    fetch('/api/leagues')
       .then((res) => {
         if (res.status !== 200) return router.push('login')
         return res.json()
@@ -30,7 +30,7 @@ function Leagues() {
         <h2 className='font-bold'>Leagues</h2>
         {data && data.map((l, i) => {
             return <League key={i} {...l} onClick={() => {
-                router.push('leagues/{l._id}')
+              router.push(`/leagues/${l._id}`)
             }}/>
         })}
       </main>

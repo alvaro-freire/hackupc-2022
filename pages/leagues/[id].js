@@ -1,16 +1,20 @@
+import { useRouter } from 'next/router'
 import Navbar from "../../components/navbar"
 import Seo from "../../components/seo"
 
-function Id() {
+function LeaguePage() {
+  const router = useRouter()
+  const { id } = router.query
+
   return (
     <>
       <Seo title='Leagues' />
       <Navbar />
       <main>
-        <h2>Id</h2>
+        <h2>{id}</h2>
       </main>
     </>
   )
 }
-  
-export default Id
+
+export default LeaguePage
