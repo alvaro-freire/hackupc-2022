@@ -5,6 +5,7 @@ import Navbar from "../../components/navbar"
 import Podium from '../../components/podium'
 import Score from '../../components/score'
 import Seo from "../../components/seo"
+import Title from '../../components/title'
 
 function LeaguePage() {
   const router = useRouter()
@@ -31,9 +32,9 @@ function LeaguePage() {
       <Navbar />
       <main>
         <div className='text-center w-[400px] mx-auto'>
-          <div className='text-lg font-bold mt-10'>
-            {league && league.name}
-          </div>
+          <Title
+            content={league && league.name}
+          />
           <div className='text-sm mt-3'>
             <p>League ID: {id}</p>
           </div>
