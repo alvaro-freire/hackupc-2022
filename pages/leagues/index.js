@@ -13,13 +13,14 @@ function Leagues() {
 
   useEffect(() => {
     fetch('api/leagues')
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status !== 200) return router.push('login')
+        return res.json()
+      })
       .then((data) => {
         setData(data)
       })
-  }, [])
-
-  if (!data || data.length === 0) return <p>No leagues</p>
+  }, [router])
 
   return (
     <>
@@ -27,8 +28,8 @@ function Leagues() {
       <Navbar />
       <main className='mx-auto w-[250px] text-center'>
         <h2 className='font-bold'>Leagues</h2>
-        {data.map(l => {
-            return <League {...l} onClick={() => {
+        {data && data.map((l, i) => {
+            return <League key={i} {...l} onClick={() => {
                 router.push('leagues/{l._id}')
             }}/>
         })}
