@@ -28,7 +28,7 @@ function Result() {
       <Seo title='Result' />
       <Navbar />
       <Title content={'Your Result'} />
-      <div className='w-[300px] text-center mx-auto mt-2'>
+      <div className='w-full text-center mx-auto mt-2'>
         <p>{result && result.head}</p>
         <p className='my-3'>{result && result.emojis && result.emojis.map((e) => {
           return <p>{e}</p>
