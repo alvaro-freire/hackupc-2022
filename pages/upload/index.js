@@ -15,7 +15,7 @@ function Upload() {
       result: event.target.result.value,
     }
 
-    if (!data) return
+    if (!data.result) return
 
     const JSONdata = JSON.stringify(data)
 
@@ -31,8 +31,10 @@ function Upload() {
 
     const response = await fetch(endpoint, options)
 
+    const { _id } = await response.json()
+
     if (response.status === 200) {
-      router.push('/leagues')
+      router.push(`/results/${_id}`)
     }
   }
 
