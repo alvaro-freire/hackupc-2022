@@ -22,10 +22,16 @@ function Navbar() {
 
   return (
     <main>
-      <nav className='underline flex w-[400px] mx-auto justify-around mt-3 mb-5'>
-        <Link href='/leagues'>Leagues</Link>
-        <Link href='/upload'>Upload</Link>
-        <Link href='/profile'>Profile</Link>
+      <nav className='flex w-[400px] mx-auto justify-around mt-3 mb-5'>
+        <Link href='/leagues'>
+          <a className={router.pathname.startsWith('/leagues') ? 'underline' : ''}>Leagues</a>
+        </Link>
+        <Link href='/upload'>
+          <a className={router.pathname.startsWith('/upload') ? 'underline' : ''}>Upload</a>
+        </Link>
+        <Link href='/profile'>
+          <a className={router.pathname.startsWith('/profile') ? 'underline' : ''}>Profile</a>
+        </Link>
         {username && <p className="cursor-pointer" onClick={handleLogout}>Logout</p>}
       </nav>
     </main>
