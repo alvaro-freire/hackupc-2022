@@ -22,9 +22,12 @@ function Navbar() {
 
   return (
     <main>
-      <nav className='flex w-[400px] mx-auto justify-around mt-3 mb-5'>
+      <nav className='flex w-[500px] mx-auto justify-around mt-3 mb-5'>
         <Link href='/leagues'>
           <a className={router.pathname.startsWith('/leagues') ? 'underline' : ''}>Leagues</a>
+        </Link>
+        <Link href='/challenges'>
+          <a className={router.pathname.startsWith('/challenges') ? 'underline' : ''}>Challenges</a>
         </Link>
         <Link href='/upload'>
           <a className={router.pathname.startsWith('/upload') ? 'underline' : ''}>Upload</a>
