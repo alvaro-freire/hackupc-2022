@@ -16,7 +16,7 @@ function Result() {
     fetch(`/api/results/${id}`)
       .then(res => res.json())
       .then(setResult)
-  })
+  }, [id])
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -30,8 +30,8 @@ function Result() {
       <Title content={'Your Result'} />
       <div className='w-full text-center mx-auto mt-2'>
         <p>{result && result.head}</p>
-        <p className='my-3'>{result && result.emojis && result.emojis.map((e) => {
-          return <p>{e}</p>
+        <p className='my-3'>{result && result.emojis && result.emojis.map((e, i) => {
+          return <p key={i}>{e}</p>
         })}</p>
         {result && result.typeUrl &&
           <Link href={result.typeUrl}>

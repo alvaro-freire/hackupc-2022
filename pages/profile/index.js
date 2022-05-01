@@ -18,7 +18,7 @@ function Profile() {
       <Seo title='Home' />
       <Navbar />
       <div className='px-3 text-center mt-16 mb-4 w-[300px] mx-auto'>
-        <Image src={'/zombie.png'} width={'100px'} height={'100px'} />
+        <Image alt="zombie" src={'/zombie.png'} width={'100px'} height={'100px'} />
         <div className='text-xl mb-3'>{profile && profile.username}</div>
       </div>
       <div className='flex w-[400px] text-center mx-auto'>

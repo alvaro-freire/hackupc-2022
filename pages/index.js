@@ -8,7 +8,7 @@ export default function Home() {
       <Seo title='Home' />
       <Navbar />
       <div className='mx-auto mt-20 text-center'>
-        <Image src={'/apple-touch-icon.png'} width='60px' height={'60px'} />
+        <Image alt='trophy' src={'/apple-touch-icon.png'} width='60px' height={'60px'} />
       </div>
       <h1 className="text-2xl text-center mt-3 w-[200px] mx-auto font-bold">
         Welcome to Wordle League!
