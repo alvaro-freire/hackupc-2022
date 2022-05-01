@@ -1,9 +1,9 @@
 import { useRouter } from "next/router"
-import Button from "../../components/button"
-import Navbar from "../../components/navbar"
-import Seo from "../../components/seo"
-import TextArea from "../../components/textarea"
-import Title from "../../components/title"
+import Button from "../../../components/button"
+import Navbar from "../../../components/navbar"
+import Seo from "../../../components/seo"
+import TextArea from "../../../components/textarea"
+import Title from "../../../components/title"
 
 function Upload() {
   const router = useRouter()
@@ -51,7 +51,7 @@ function Upload() {
             name={'result'}
           />
           <Button
-            text = {'Respond Challenge'}
+            text = {'Upload solution'}
           />
         </form>
       </main>
