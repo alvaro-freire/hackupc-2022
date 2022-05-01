@@ -20,10 +20,12 @@ export default async function handler(req, res) {
     let myPoints = 0
     let rivalPoints = 0
     for (const { result } of challenge.rounds.flat()) {
-      if (result.username === username) {
-        myPoints += result.points
-      } else {
-        rivalPoints += result.points
+      if (result) {
+        if (result.username === username) {
+          myPoints += result.points
+        } else {
+          rivalPoints += result.points
+        }
       }
     }
     const round = challenge.rounds.length - 1

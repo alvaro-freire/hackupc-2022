@@ -23,7 +23,7 @@ function Challenge({ _id, onClick }) {
           <p className='text-lg'>Best of: {challenge && challenge.bestOf}</p>
         </div>
         <div className='w-[200px] text-right text-lg'>
-          <p>Rounds: ✅⬜⬜ {challenge && challenge.round}</p>
+          <p>{challenge && '✅'.repeat(challenge.round - 1)}{challenge && (!challenge.nextStep ? '✅' : '⬜'.repeat(challenge.bestOf - challenge.round + 1))}</p>
         </div>
       </div>
     </div>
