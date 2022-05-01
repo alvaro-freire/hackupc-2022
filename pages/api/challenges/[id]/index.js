@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     }
     const round = challenge.rounds.length - 1
     if (round === challenge.bestOf - 1 && challenge.rounds[round][1] && challenge.rounds[round][1].result) {
-      return res.status(200).json({ ...challenge, myPoints, rivalPoints, round })
+      return res.status(200).json({ ...challenge, myPoints, rivalPoints, round: round + 1 })
     }
     if (!challenge.rounds[round][0]) {
       challenge.nextStep = {
@@ -58,6 +58,6 @@ export default async function handler(req, res) {
         step: 'upload'
       }
     }
-    return res.status(200).json({ ...challenge, myPoints, rivalPoints, round })
+    return res.status(200).json({ ...challenge, myPoints, rivalPoints, round: round + 1 })
   }
 }
