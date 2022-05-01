@@ -29,9 +29,7 @@ return (
     <Seo title='Challenges' />
     <Navbar />
     <main className='mx-auto w-[500px] text-center'>
-      <Title
-        content={'Challenges'}
-      />
+      <Title content={'Challenges'} />
       {data && data.length === 0 && <p className='mt-3'>No leagues yet!</p>}
       {data && data.map((l, i) => {
         return <Challenge key={i} {...l} onClick={() => {

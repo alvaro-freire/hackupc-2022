@@ -1,27 +1,25 @@
 import { useRouter } from "next/router"
-import Button from "../../../components/button"
-import Navbar from "../../../components/navbar"
-import Seo from "../../../components/seo"
-import TextArea from "../../../components/textarea"
-import Title from "../../../components/title"
+import Button from "../../components/button"
+import Navbar from "../../components/navbar"
+import Seo from "../../components/seo"
+import TextArea from "../../components/textarea"
+import Title from "../../components/title"
 
 function Upload() {
   const router = useRouter()
-
-  const { id } = router.query
 
   async function handleUpload(event) {
     event.preventDefault()
 
     const data = {
-      url: event.target.result.value,
+      result: event.target.result.value,
     }
 
-    if (!data.url) return
+    if (!data.result) return
 
     const JSONdata = JSON.stringify(data)
 
-    const endpoint = `/api/challenges/${id}/upload`
+    const endpoint = `/api/challenges/${_id}/result`
 
     const options = {
       method: 'POST',
@@ -32,6 +30,8 @@ function Upload() {
     }
 
     const response = await fetch(endpoint, options)
+
+    const { _id } = await response.json()
 
     if (response.status === 200) {
       router.push('/challenges')
@@ -46,12 +46,12 @@ function Upload() {
       <main>
         <form onSubmit={handleUpload}>
           <TextArea 
-            label={'Paste your link here'}
+            label={'Paste your result here'}
             type={'text'}
             name={'result'}
           />
           <Button
-            text = {'Upload challenge'}
+            text = {'Respond Challenge'}
           />
         </form>
       </main>

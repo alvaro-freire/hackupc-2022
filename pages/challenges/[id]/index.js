@@ -4,13 +4,12 @@ import { useState, useEffect } from "react"
 import Button from "../../../components/button"
 import Navbar from "../../../components/navbar"
 import Seo from "../../../components/seo"
-import TextArea from "../../../components/textarea"
 import Title from "../../../components/title"
 
 function Challenge() {
   const router = useRouter()
   const { id } = router.query
-  
+
   const [challenge, setChallenge] = useState(null)
   const [username, setUsername] = useState(null)
 
@@ -32,7 +31,7 @@ function Challenge() {
         <p>Challenge ID: {challenge && challenge._id}</p>
       </div>
       {challenge &&
-        <div className="w-[400px] mx-auto text-center flex justify-around mt-3">
+        <div className='w-[400px] mx-auto text-center flex justify-around mt-3'>
           <div>
             <Image alt={'zombie'} src={'/zombie.png'} width={'100px'} height={'100px'} />
             <p>{challenge.from}</p>
@@ -45,6 +44,24 @@ function Challenge() {
           </div>
         </div>
       }
+      {challenge && challenge.nextStep && challenge.nextStep.user === username && (challenge.nextStep.step === 'upload' ?
+        <div className='w-[400px] mx-auto text-center mt-3'>
+          <Button 
+            text={'Upload'}
+            onClick={() => {
+              router.push(`/challenges/${id}/upload`)
+            }}
+          />
+        </div> :
+        <div className='w-[400px] mx-auto text-center mt-3'>
+        <Button 
+          text={'Solve'}
+          onClick={() => {
+            router.push(`/challenges/${id}/solve`)
+          }}
+        />
+      </div>
+      )}
     </>
   )
 }
