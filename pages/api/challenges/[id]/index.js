@@ -17,9 +17,18 @@ export default async function handler(req, res) {
   const challengesCollection = await loadCollection('challenges')
   if (req.method === 'GET') {
     const challenge = await challengesCollection.findOne(query)
+    let myPoints = 0
+    let rivalPoints = 0
+    for (const { result } of challenge.rounds.flat()) {
+      if (result.username === username) {
+        myPoints += result.points
+      } else {
+        rivalPoints += result.points
+      }
+    }
     const round = challenge.rounds.length - 1
     if (round === challenge.bestOf - 1 && challenge.rounds[round][1] && challenge.rounds[round][1].result) {
-      return res.status(200).json(challenge)
+      return res.status(200).json({ ...challenge, myPoints, rivalPoints })
     }
     if (!challenge.rounds[round][0]) {
       challenge.nextStep = {
@@ -49,6 +58,6 @@ export default async function handler(req, res) {
         step: 'upload'
       }
     }
-    return res.status(200).json(challenge)
+    return res.status(200).json({ ...challenge, myPoints, rivalPoints })
   }
 }
