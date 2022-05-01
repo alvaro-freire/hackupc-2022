@@ -27,11 +27,8 @@ function Challenge() {
       <Seo title='Upload' />
       <Navbar />
       <Title content={challenge && challenge.nextStep ? 'Ongoing challenge' : 'Finished challenge'} />
-      <div className='text-sm text-center mt-3'>
-        <p>Challenge ID: {challenge && challenge._id}</p>
-      </div>
       {challenge &&
-        <div className='w-[400px] mx-auto text-center flex justify-around mt-3'>
+        <div className='w-[400px] mx-auto text-center flex justify-around mt-5'>
           <div>
             <Image alt={'zombie'} src={'/zombie.png'} width={'100px'} height={'100px'} />
             <p>{challenge.from}</p>

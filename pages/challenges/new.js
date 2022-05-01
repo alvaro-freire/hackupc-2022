@@ -16,11 +16,11 @@ function New() {
 
     const data = {
       to: event.target.to.value,
-      bestof: event.target.bestof.value,
-      url: event.target.url.value,
+      bestOf: bestof,
+      startingUrl: event.target.url.value,
     }
 
-    if (!data.to || !data.bestof || !data.url) return
+    if (!data.to || !data.bestOf || !data.startingUrl) return
 
     const JSONdata = JSON.stringify(data)
 
@@ -55,7 +55,7 @@ function New() {
           <Input
             type='text'
             label='Username'
-            name='name'
+            name='to'
           />
           <Input
             type='text'

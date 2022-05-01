@@ -40,12 +40,6 @@ function Leagues() {
         })}
         <div className='flex justify-around text-sm mt-5'>
           <Button
-            text = {'Join League'}
-            onClick = {() => {
-              router.push('/leagues/join')
-            }}
-          />
-          <Button
             text = {'Create League'}
             onClick = {() => {
               router.push('/leagues/new')

@@ -1,6 +1,8 @@
-function Alert({ text, onClose }) {
+function Alert({ text, bgColor, onClose }) {
+  const color=bgColor ? bgColor : 'bg-red-400'
+  const cname='flex px-2 py-1 ' + color + ' w-[200px] mx-auto'
   return (
-    <div className='flex px-2 py-1 bg-red-400 w-[200px] mx-auto'>
+    <div className={cname}>
       <div className='grow'>{text}</div>
       <div className='cursor-pointer' onClick={onClose}>X</div>
     </div>

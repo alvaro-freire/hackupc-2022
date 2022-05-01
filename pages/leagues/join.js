@@ -16,9 +16,11 @@ function Join() {
     event.preventDefault()
 
     const data = {
-      id: event.target.id.value,
+      id: router.query.id,
       key: event.target.key.value,
     }
+
+    console.log(data.id)
 
     if (!data.id || !data.key) {
       return
@@ -63,11 +65,6 @@ function Join() {
       }
       <main>
         <form onSubmit={handleSubmit}>
-          <Input
-            type='text'
-            label='League Id'
-            name='id'
-          />
           <Input
             type='password'
             label='Key'
