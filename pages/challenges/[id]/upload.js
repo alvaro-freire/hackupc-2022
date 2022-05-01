@@ -46,12 +46,12 @@ function Upload() {
       <main>
         <form onSubmit={handleUpload}>
           <TextArea 
-            label={'Paste your result here'}
+            label={'Paste your link here'}
             type={'text'}
             name={'result'}
           />
           <Button
-            text = {'Upload solution'}
+            text = {'Upload challenge'}
           />
         </form>
       </main>
