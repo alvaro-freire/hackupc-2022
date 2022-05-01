@@ -8,9 +8,9 @@ function Challenge({ _id, onClick }) {
     fetch(`/api/challenges/${_id}`)
       .then((res) => res.json())
       .then(setChallenge)
-  }, [_id])
+  }, [_id, setChallenge])
 
-  const diffPoints = challenge && challenge.rivalPoints - challenge.myPoints
+  const diffPoints = challenge && challenge.myPoints - challenge.rivalPoints
   const diffEmoji = diffPoints > 0 ? '😁' : diffPoints === 0 ? '😑' : '😔'
 
   return (

@@ -9,6 +9,7 @@ import Title from "../../../components/title"
 
 function Solve() {
   const router = useRouter()
+
   const { id } = router.query
 
   const [challenge, setChallenge] = useState(null)
@@ -42,10 +43,9 @@ function Solve() {
 
     const response = await fetch(endpoint, options)
 
-    const { _id } = await response.json()
-
     if (response.status === 200) {
-      router.push('/challenges')
+
+      router.push(`/challenges/${id}`)
     }
   }
 

@@ -8,18 +8,20 @@ import Title from "../../../components/title"
 function Upload() {
   const router = useRouter()
 
+  const { id } = router.query
+
   async function handleUpload(event) {
     event.preventDefault()
 
     const data = {
-      result: event.target.result.value,
+      url: event.target.result.value,
     }
 
-    if (!data.result) return
+    if (!data.url) return
 
     const JSONdata = JSON.stringify(data)
 
-    const endpoint = `/api/challenges/${_id}/result`
+    const endpoint = `/api/challenges/${id}/upload`
 
     const options = {
       method: 'POST',
@@ -30,8 +32,6 @@ function Upload() {
     }
 
     const response = await fetch(endpoint, options)
-
-    const { _id } = await response.json()
 
     if (response.status === 200) {
       router.push('/challenges')

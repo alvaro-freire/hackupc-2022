@@ -44,7 +44,7 @@ function Challenge() {
           </div>
         </div>
       }
-      {challenge && challenge.nextStep && challenge.nextStep.user === username && challenge.nextStep.step === 'upload' ?
+      {challenge && challenge.nextStep && challenge.nextStep.user === username && (challenge.nextStep.step === 'upload' ?
         <div className='w-[400px] mx-auto text-center mt-3'>
           <Button 
             text={'Upload'}
@@ -61,7 +61,7 @@ function Challenge() {
           }}
         />
       </div>
-      }
+      )}
     </>
   )
 }
