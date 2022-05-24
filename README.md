@@ -34,3 +34,11 @@ However, we think the most powerful thing is the experience of working together 
 
 Right now the authentication part is just mocked, so that needs to be implemented. 
 The challenges feature also needs to be polished.
+
+<!-- ACKNOWLEDGMENTS -->
+### Contributions
+
+I was responsible for the Frontend,
+and Jorge developed the Backend:
+
+* [Jorge Teixe](https://github.com/jorgeteixe/)
